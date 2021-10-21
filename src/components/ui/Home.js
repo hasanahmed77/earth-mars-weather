@@ -6,6 +6,7 @@ import Mars from '../../img/mars.jpg';
 import Selection from './Selection';
 
 const Home = () => {
+
     return (
         <Flex 
             flexDir='row' 

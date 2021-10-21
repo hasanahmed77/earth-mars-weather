@@ -1,7 +1,11 @@
 import React from 'react'
 import { Flex, Text } from '@chakra-ui/layout'
+import { useHistory } from 'react-router';
 
 const Selection = ({ bgImage, content }) => {
+    const history = useHistory();
+    const handleClick = () => history.push(`/${content.toLowerCase()}`);
+
     return (
         <Flex 
             width='50%' 
@@ -12,6 +16,7 @@ const Selection = ({ bgImage, content }) => {
             alignItems="center"
             _hover={{ width: "55%", transition: "all 500ms" }}
             transition="all 500ms"
+            onClick={handleClick}
         >
         <Text 
             ml="auto" 
