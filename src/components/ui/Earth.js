@@ -61,7 +61,7 @@ const Earth = () => {
                     mb="1rem" 
                     textAlign="center"
                     fontSize="xl"
-                    fontWeight="light"
+                    fontWeight="regular"
                     colorScheme="red"
                 >
                     Enter a location for weather information

@@ -21,7 +21,7 @@ const Selection = ({ bgImage, content }) => {
         <Text 
             ml="auto" 
             mr="auto" 
-            fontSize="10rem" 
+            fontSize={["4.5rem", "5rem", "7rem", "9rem", "14rem"]} 
             fontWeight="bold" 
             color={(content === "Earth") ? "black" : "white"}
         >
