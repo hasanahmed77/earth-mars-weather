@@ -15,8 +15,10 @@ function App() {
         width="100%"
         flexDirection="column"
         overflow="hidden"
+        backgroundColor="white"
       >
         <Header />
+        
         <Switch>
           <Route exact path="/">
             <Home />

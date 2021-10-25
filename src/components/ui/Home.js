@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 import Earth from '../../img/earth.jpg';
 import Mars from '../../img/mars.jpg';

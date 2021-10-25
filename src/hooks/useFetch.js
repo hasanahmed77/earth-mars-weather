@@ -1,3 +1,6 @@
+import React, { useState } from 'react'
+import axios from 'axios';
+
 const useFetch = (url) => {
     const [weather, setWeather] = useState({});
     const [loading, setLoading] = useState(false);
@@ -5,13 +8,11 @@ const useFetch = (url) => {
     const fetchItems = async () => {
         const result = await axios(url);
     
-        console.log(result);
         setWeather(result);
         setLoading(true);
     }
-    fetchItems();
 
-    return { weather }
+    return { weather, loading, fetchItems }
 }
 
 export default useFetch;
