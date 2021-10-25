@@ -1,8 +1,10 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { Flex } from "@chakra-ui/react";
+
 import Home from './components/ui/Home';
 import Header from './components/Header';
+import Earth from './components/ui/Earth';
 
 
 function App() {
@@ -10,15 +12,19 @@ function App() {
     <Router>
       <Flex 
         height="100vh" 
-        idth="100%"
+        width="100%"
         flexDirection="column"
-        justifyContent="space-between"
+        overflow="hidden"
       >
         <Header />
         <Switch>
           <Route exact path="/">
             <Home />
-          </Route>    
+          </Route>  
+
+          <Route exact path="/earth">
+            <Earth />
+          </Route>   
 
         </Switch>
       </Flex>
