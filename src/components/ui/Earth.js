@@ -48,9 +48,9 @@ const Earth = () => {
     // main
     return (
         <Flex 
-            mt={["7rem", "7rem", "8rem","11rem", "8rem"]}
-            maxW={['85%', "85%", '90%', "100%", "100%"]}
-            maxH="70%" 
+            mt={["6rem", "7rem", "8rem","11rem", "8rem"]}
+            maxW={['75%', "85%", '90%', "100%", "100%"]}
+            maxH="100%" 
             flexDir="column" 
             justifyContent="space-between"
             alignSelf="center"
@@ -60,7 +60,7 @@ const Earth = () => {
                 <Text 
                     mb="1rem" 
                     textAlign="center"
-                    fontSize="xl"
+                    fontSize={['l', 'xl', "xl", "xl", "xl"]}
                     fontWeight="regular"
                     colorScheme="red"
                 >
@@ -82,7 +82,7 @@ const Earth = () => {
                 loading &&
             <Box
                 width={['100%', "100%", "100%", "35rem", "100%"]}
-                height={['92%', '92%', "100%", "100%", "100%"]}
+                height={['100%', '100%', "100%", "100%", "100%"]}
                 bg="btnColor.200"
                 shadow="2xl"
             >
@@ -108,12 +108,12 @@ const Earth = () => {
                     flexDir="column" 
                     justifyContent="space-around"
                     textAlign="center"
-                    fontSize="3xl" 
-                    mb="10%"
+                    fontSize={['2xl', '3xl', "3xl", "5xl", "3xl"]}
+                    height="25%"
                  >
                     <Text fontWeight="regular" pb="0.5rem" pt="0.5rem">{weather.data?.name}</Text>
-                    <Text fontWeight="light" fontSize="2xl">{weather.data?.weather[0].main}</Text>
-                    <Text fontWeight="light" fontSize="5xl">{Math.round(weather.data?.main.temp)}°C</Text>
+                    <Text fontWeight="light" fontSize={['xl', '2xl', "2xl", "2xl", "2xl"]} >{weather.data?.weather[0].main}</Text>
+                    <Text fontWeight="light" fontSize={['3xl', '5xl', "5xl", "7xl", "5xl"]} pb="0.5rem">{Math.round(weather.data?.main.temp)}°C</Text>
                  </Flex>
             </Box>
             }
