@@ -10,6 +10,7 @@ const useFetch = (url) => {
     
         setWeather(result);
         setLoading(true);
+        console.log(result);
     }
 
     return { weather, loading, fetchItems }
