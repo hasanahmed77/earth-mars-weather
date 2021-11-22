@@ -14,6 +14,7 @@ import Night from '../../img/night.svg'
 import Day from '../../img/day.svg'
 import { SearchOutlined } from '@ant-design/icons';
 import useFetch from '../../hooks/useFetch';
+import Weather from './Weather';
 
 
 // global variables
@@ -25,27 +26,28 @@ const api = {
 }
 
 // the component
-const Earth = () => { 
-    // useStates
-    const [query, setQuery] = useState('');
-    const [icon, setIcon] = useState('');
 
-    // custom hooks
-    const { weather, loading, fetchItems } = useFetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-
-    // functions
-    const search = evt => {
-        if(evt.key === "Enter") {
-            fetchItems();
+const Earth = () => {
+        // useStates
+        const [query, setQuery] = useState('');
+        const [bgIcon, setBgIcon] = useState('');
+    
+        // custom hooks
+        const { weather, loading, fetchItems } = useFetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+    
+        // functions
+        const search = evt => {
+            if(evt.key === "Enter") {
+                fetchItems();
+            }
         }
-    }
-
-    // useEffects
-    useEffect(() => {
-        setIcon((((weather.data?.weather[0].icon.includes('d'))) ? 'white' : '#EFCF6E'))
-    }, [weather.data])
-
-    // main
+    
+        // useEffects
+        // useEffect(() => {
+        //     setIcon((((weather.data?.weather[0].icon.includes('d'))) ? 'white' : '#EFCF6E'))
+        // }, [Weather])
+    
+        // main
     return (
         <Flex 
             mt={["6rem", "7rem", "8rem","11rem", "8rem"]}
@@ -80,42 +82,16 @@ const Earth = () => {
             {/* Hero section */}
             {
                 loading &&
-            <Box
-                width={['100%', "100%", "100%", "35rem", "100%"]}
-                height={['100%', '100%', "100%", "100%", "100%"]}
-                bg="btnColor.200"
-                shadow="2xl"
-            >
-                {/* background image */}
-                <Flex>
-                    <Image src={(weather.data?.weather[0].icon.includes('d')) ? Day : Night} w="100%" />
-                </Flex>
-                <Flex 
-                >
-                    {/* weather icon */}
-                    <Image 
-                        src={`http://openweathermap.org/img/wn/${weather.data?.weather[0].icon}@2x.png`}
-                        w="20%" 
-                        ml="auto"
-                        mr="auto"
-                        mt="-10%"
-                        background={icon}
-                        borderRadius="20rem"
-                    />
-                </Flex>
-                    {/* weather info */}
-                 <Flex 
-                    flexDir="column" 
-                    justifyContent="space-around"
-                    textAlign="center"
-                    fontSize={['2xl', '3xl', "3xl", "5xl", "3xl"]}
-                    height="25%"
-                 >
-                    <Text fontWeight="regular" pb="0.5rem" pt="0.5rem">{weather.data?.name}</Text>
-                    <Text fontWeight="light" fontSize={['xl', '2xl', "2xl", "2xl", "2xl"]} >{weather.data?.weather[0].main}</Text>
-                    <Text fontWeight="light" fontSize={['3xl', '5xl', "5xl", "7xl", "5xl"]} pb="0.5rem">{Math.round(weather.data?.main.temp)}°C</Text>
-                 </Flex>
-            </Box>
+                <Weather 
+                    data={weather.data}
+                    bgImage={weather.data?.weather[0].icon.includes('d') ? Day : Night}
+                    icon={`http://openweathermap.org/img/wn/${weather.data?.weather[0].icon}@2x.png`}
+                    setBgIcon={setBgIcon}
+                    bgIcon={bgIcon}
+                    name={weather.data?.name}
+                    weatherLike={weather.data?.weather[0].main}
+                    temp={Math.round(weather.data?.main.temp)}
+                 />
             }
         </Flex>
     )

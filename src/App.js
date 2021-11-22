@@ -5,6 +5,8 @@ import { Flex } from "@chakra-ui/react";
 import Home from './components/ui/Home';
 import Header from './components/Header';
 import Earth from './components/ui/Earth';
+import Mars from './components/ui/Mars';
+import Weather from './components/ui/Weather';
 
 
 function App() {
@@ -26,6 +28,10 @@ function App() {
 
           <Route exact path="/earth">
             <Earth />
+          </Route>   
+
+          <Route exact path="/mars">
+            <Mars />
           </Route>   
 
         </Switch>
